@@ -1,0 +1,6 @@
+defaults:
+  - dataset: sst
+  - optimizer: adam
+  - parameters: parameters
+query_function: variation_ratio
+metric_file: random_vs_al

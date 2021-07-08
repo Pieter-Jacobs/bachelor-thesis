@@ -1,0 +1,5 @@
+# @package _group_
+name: rect
+pool_size: 30
+l: 0
+K: none

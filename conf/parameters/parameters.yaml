@@ -1,0 +1,6 @@
+# @package _group_
+  dropout: 0.2
+  T: 10
+  Q: 85
+  epochs: 15
+  batch_size: 128
