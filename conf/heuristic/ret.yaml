@@ -1,4 +1,3 @@
 # @package _group_
 name: ret
-pool_size: 30
-K: none
+pool_size: 128

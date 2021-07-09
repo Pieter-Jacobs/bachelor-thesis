@@ -1,5 +1,4 @@
 # @package _group_
 name: rect
-pool_size: 30
+pool_size: 128
 l: 0
-K: none
