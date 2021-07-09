@@ -146,7 +146,7 @@ class Querier:
     def predictive_entropy(pred_matrix):
         """Computes and returns predictive entropies of the predictions in the given prediction matrix"""
         n = len(pred_matrix)
-        uncertainty_matrix = np.zeros(n)
+        uncertainties= np.zeros(n)
         inner_dim = pred_matrix.shape[len(pred_matrix.shape) - 1]
         for i, preds in enumerate(pred_matrix):
             sum_ = np.zeros(inner_dim)
@@ -156,13 +156,13 @@ class Querier:
                     1e-17)
                 sum_ = np.add(sum_, pred)
             avg_preds = np.divide(sum_, len(preds))
-            uncertainty_matrix[i] = -1 * \
+            uncertainties[i] = -1 * \
                 np.sum(np.multiply(avg_preds, np.log2(avg_preds)))
-        return uncertainty_matrix
+        return uncertainties
 
     def mutual_information(self, pred_matrix):
         """Computes and returns BALD of the predictions in the given prediction matrix"""
-        uncertainty_matrix = np.array([])
+        uncertainties = np.array([])
         inner_dim = pred_matrix.shape[len(pred_matrix.shape) - 1]
         for preds in pred_matrix:
             sum_ = np.zeros(inner_dim)
@@ -171,6 +171,6 @@ class Querier:
                     pred,
                     1e-17)
                 sum_ = np.add(sum_, np.multiply(pred, np.log2(pred)))
-            uncertainty_matrix = np.append(
-                uncertainty_matrix, np.sum(sum_ / self.T))
-        return np.add(self.predictive_entropy(pred_matrix), uncertainty_matrix)
+            uncertainties = np.append(
+                uncertainties, np.sum(sum_ / self.T))
+        return np.add(self.predictive_entropy(pred_matrix), uncertainties)

@@ -53,6 +53,7 @@ class PreProcessor:
         df['text'] = df['text'].apply(
             lambda text: self.remove_non_ascii(text))
         df = self.remove_empty_strings(df)
+        # Add extra row for to still have access to the real label for the unlabeled data partition
         df.insert(2, "oracle_label", df['label'], True)
         if remove_labels:
             df['label'] = df['label'].apply(lambda x: None)

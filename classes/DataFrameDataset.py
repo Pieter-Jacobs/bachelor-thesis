@@ -55,12 +55,12 @@ class DataFrameDataset(data.Dataset):
             Indicates whether the used dataframe is to be used as the unlabeled dataset
             Default is False
         """
-        if len(examples) == 0:
+        if len(examples) == 0:  
             examples = df.apply(
                 lambda row: self.createExample(
                     row, fields, is_unlabeled), axis=1)
             super().__init__(examples, fields, **kwargs)
-        else:
+        else:   # If examples were provided, we can simply create a dataset with those examples
             super().__init__(examples, fields)
 
     def createExample(cls, row, fields, is_unlabeled):
