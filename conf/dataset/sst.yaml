@@ -3,6 +3,6 @@ name: sst
 columns_to_select: [0,1]
 feature_size: 5
 seed_path: /Data/SST/seed.csv
-unlabeled_path: /Data/SST/train.csv
+unlabeled_path: /Data/SST/unlabeled.csv
 val_path: /Data/SST/validation.csv
 test_path:  /Data/SST/test.csv

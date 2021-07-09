@@ -5,7 +5,7 @@ This repository contains the code used for my bachelor thesis on active learning
 Python 3 is required to run this project.
 Moreover, use the package manager [pip](https://pip.pypa.io/en/stable/) to install the following dependencies:
 ```bash
-pip install dill hydra matplotlib nltk numba pandas sentence_transformers sklearn scipy torch torchtext transformers
+pip install dill hydra-core matplotlib nltk numba pandas sentence_transformers sklearn scipy torch torchtext transformers
 ```
 ## Usage
 For the experiment that compared active learning and random sampling, run:

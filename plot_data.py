@@ -38,6 +38,7 @@ lines = [
 
 
 def main():
+    """Initialise a plotter for the input experiment and make it plot the data"""
     if sys.argv[1] == "1":
         plotter_accuracy = Plotter(3, 'random_vs_al_accuracy.txt', lines[0])
         plotter_roc = Plotter(3, 'random_vs_al_roc.txt', lines[0])

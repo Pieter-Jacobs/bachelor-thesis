@@ -3,6 +3,20 @@ import numpy as np
 
 
 def file_to_arrays(file_name, n):
+    """
+    Processes the strings out of a file to transform them to arrays
+
+    Parameters:
+    -----------
+    file_name: str
+        The name of the file from which to read the data
+    n: int
+        Amount of times the experiment was run
+    Returns:
+    --------
+    data: list
+        The arrays containing the values of the different runs/experiments
+    """
     arrays = []
     experiment = []
     with open(file_name, 'r') as f:
@@ -14,19 +28,20 @@ def file_to_arrays(file_name, n):
     return arrays
 
 
-def compute_deficiency(ref, al):
+def compute_deficiency(ref, c):
+    """Compute and return the deficiency between the reference strategy and the comparison strategy"""
     nom = 0
     denom = 0
-    for i, x in enumerate(al):
+    for i, x in enumerate(c):
         nom += (max(ref) - x)
         denom += (max(ref) - ref[i])
     return nom/denom
 
 
 def main():
+    """Read the data based on the input experiment and print the deficiencies between the strategies"""
     arrays = []
     if sys.argv[1] == "1":
-        print("ye")
         arrays = file_to_arrays('random_vs_al_accuracy.txt', 3)
     elif sys.argv[1] == "2":
         arrays = file_to_arrays('scaling_accuracy.txt', 3)
