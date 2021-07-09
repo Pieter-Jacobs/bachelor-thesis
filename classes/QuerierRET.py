@@ -45,6 +45,7 @@ class QuerierRET(Querier):
         """
         labeled_examples = np.array([])
         queried_amount = 0
+        # Prevent an error from occuring when there is not enough data to fill RP
         if len(self.iterator.dataset.examples) < self.pool_size:
             self.pool_size = len(self.iterator.dataset.examples)
         uncertainty_rp = sorted(self.uncertainty_matrix, reverse=True)[
@@ -57,13 +58,13 @@ class QuerierRET(Querier):
                 labeled_examples, self.iterator.dataset.examples.loc[idx])
             self.trainer.train_iterator.dataset = DataFrameDataset(
                 examples=[self.iterator.dataset.examples.loc[idx]], fields=self.iterator.dataset.fields)
-            self.trainer.training_step()
+            self.trainer.training_step()    # Retrain on top example
             self.iterator.dataset.examples.drop(idx, inplace=True)
             self.iterator.dataset.examples.index = (
                 [i for i in range(len(self.iterator.dataset.examples))])
             if(len(self.iterator.dataset.examples) > 0):
                 uncertainty_rp = self.assign_pool_uncertainties(
-                    self.iterator.dataset.examples[0:(self.pool_size-len(labeled_examples))])
+                    self.iterator.dataset.examples[0:(self.pool_size-len(labeled_examples))])   # Recompute uncertainties for RP
             queried_amount += 1
         self.trainer.train_iterator.dataset = initial_dataset
         return labeled_examples

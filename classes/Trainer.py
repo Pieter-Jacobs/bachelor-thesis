@@ -90,6 +90,7 @@ class Trainer():
             print(
                 f'Val Loss: {val_loss:.3f} | Val Acc: {val_acc*100:.2f}%')
             val_losses = np.append(val_losses, val_loss)
+        # Load the parameters of the model with the lowest validation loss
         self.model.load_state_dict(torch.load(os.path.join(
             hydra.utils.get_original_cwd(), "saves" + os.path.sep + "model-early-stopping" + str(np.argmin(val_losses)) + ".pkl")), strict=False)
         self.optimizer.params = AdamW(
