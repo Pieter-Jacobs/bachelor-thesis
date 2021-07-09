@@ -8,7 +8,6 @@ from classes.QuerierRandom import QuerierRandom
 from classes.QuerierRET import QuerierRET
 from classes.QuerierRECT import QuerierRECT
 from classes.QuerierSUD import QuerierSUD
-from classes.RankingExperiment import RankingExperiment
 
 # Make results reproducible
 SEED = 1815
