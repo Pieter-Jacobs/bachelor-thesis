@@ -17,10 +17,10 @@ lines = [
                       markersize=10, label='BALD'),
     ],
     [
-        mlines.Line2D([], [], color='red', marker='s', linestyle='None',
-                      markersize=10, label='Query-pool size of 0.5\%'),
         mlines.Line2D([], [], color='green', marker='o', linestyle='None',
                       markersize=10, label='Query-pool size of 1\%'),
+        mlines.Line2D([], [], color='red', marker='s', linestyle='None',
+                      markersize=10, label='Query-pool size of 0.5\%'),
         mlines.Line2D([], [], color='blue', marker='v', linestyle='None',
                       markersize=10, label='Query-pool size of 5\%'),
     ],
