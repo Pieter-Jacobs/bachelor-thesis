@@ -1,4 +1,4 @@
-# Bachelor Thesis: Active Learning and its applications to reduce text classification labeling effort
+Active Learning and its applications to reduce text classification labeling effort
 This repository contains the code used for my bachelor thesis on active learning. The bachelor thesis can be found on https://arxiv.org/abs/2109.04847, whereas the later publication can be found on https://research.rug.nl/en/publications/active-learning-for-reducing-labeling-effort-in-text-classificati-2. This later publication includes a more extensive discussion as well as a related work section. 
 
 ## Installation
